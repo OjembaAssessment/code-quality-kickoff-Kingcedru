@@ -10,6 +10,16 @@ export default function isValidPassword(password = "") {
   // The following line ensures, that password is always a string, like the number 128 -> string "128"
   if (typeof password !== "string") password = String(password);
 
+  const sizeOfTen = password.match(/^\w{10}$/)
+  // const onlyDigits = password.match(/^\d+$/)
+  // if(!regex){
+  //   return false;
+  // }
+  // else{
+  //   return true
+  // }
+  
+
   // * * * YOUR CODE GOES IN HERE ... * * *
   /*
    * if (password is not exactly 10 digits or characters...) {
