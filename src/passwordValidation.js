@@ -11,13 +11,26 @@ export default function isValidPassword(password = "") {
   if (typeof password !== "string") password = String(password);
 
   const sizeOfTen = password.match(/^\w{10}$/)
-  // const onlyDigits = password.match(/^\d+$/)
-  // if(!regex){
+  const onlyDigits = password.match(/^\d+$/)
+  const onlyCharacters = password.match(/^[a-z]+$/i)
+  const onlyUpperCase = password.match(/[A-Z]/)
+  const onlyLowerCase = password.match(/[a-z]/)
+  
+let onlyFourDifferentChar = password.match(/(\w)/g)
+onlyFourDifferentChar =  [...new Set(onlyFourDifferentChar)].length
+const all = password.match(/[a-z 0-9]/gi)
+// const happyCode = password.match(/[\w]/)
+if(onlyDigits || onlyCharacters || onlyUpperCase || onlyLowerCase) return false
+if(onlyFourDifferentChar >= 4 && sizeOfTen && all) return true
+
+return condit ? false : true
+if(onlyFourDifferentChar >= 4) return true
+if(onlyFourDifferentChar < 4) return false
+
+  // if(!sizeOfTen || onlyDigits  || onlyUpperCase || onlyLowerCase){
   //   return false;
   // }
-  // else{
-  //   return true
-  // }
+  
   
 
   // * * * YOUR CODE GOES IN HERE ... * * *
@@ -30,7 +43,6 @@ export default function isValidPassword(password = "") {
    *   return ...;
    * }
    */
-  const setOfPassword = new Set([...password]);
-  if (setOfPassword.size < 4) return false;
-  return true;
+  
+  // return true;
 }
