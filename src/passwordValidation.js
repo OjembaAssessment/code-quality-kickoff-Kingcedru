@@ -10,39 +10,29 @@ export default function isValidPassword(password = "") {
   // The following line ensures, that password is always a string, like the number 128 -> string "128"
   if (typeof password !== "string") password = String(password);
 
-  const sizeOfTen = password.match(/^\w{10}$/)
-  const onlyDigits = password.match(/^\d+$/)
-  const onlyCharacters = password.match(/^[a-z]+$/i)
-  const onlyUpperCase = password.match(/[A-Z]/)
-  const onlyLowerCase = password.match(/[a-z]/)
   
-let onlyFourDifferentChar = password.match(/(\w)/g)
-onlyFourDifferentChar =  [...new Set(onlyFourDifferentChar)].length
-const all = password.match(/[a-z 0-9]/gi)
-// const happyCode = password.match(/[\w]/)
-if(onlyDigits || onlyCharacters || onlyUpperCase || onlyLowerCase) return false
-if(onlyFourDifferentChar >= 4 && sizeOfTen && all) return true
+  //Checking if the length of the password is equal to 10
+  if(password.length !== 10) return false
 
-return condit ? false : true
-if(onlyFourDifferentChar >= 4) return true
-if(onlyFourDifferentChar < 4) return false
+  // //Checking if password only consists of digits
+  if(/^\d+$/.test(password)) return false
 
-  // if(!sizeOfTen || onlyDigits  || onlyUpperCase || onlyLowerCase){
-  //   return false;
-  // }
-  
-  
+  //Checking if password contains only characters
+  if(/^[a-z]+$/i.test(password)) return false
 
-  // * * * YOUR CODE GOES IN HERE ... * * *
-  /*
-   * if (password is not exactly 10 digits or characters...) {
-   *   return ...;
-   * }
-   *
-   * if (is not composed by digits and numbers) {
-   *   return ...;
-   * }
-   */
-  
-  // return true;
+  // Checking for special characters
+  if(/[^a-zA-Z0-9]/.test(password)) return false
+
+  //Checking if password contains only Upper or Lower case characters
+  if(/^[a-z?0-9]+$/g.test(password)) return false
+  if(/^[A-Z?0-9]+$/g.test(password)) return false
+
+  //Checking if password is in descing or ascending
+  if(/(012|123|234|345|456|567|678|789|987|876|765|654|543|432|321)/.test(password))return false
+
+  if(forbiddenPasswords.includes(password)) return false
+
+  const setOfPassword = new Set([...password]);
+  if (setOfPassword.size < 4) return false;
+  return true;
 }
