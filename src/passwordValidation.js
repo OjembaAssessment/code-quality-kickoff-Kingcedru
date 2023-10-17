@@ -30,8 +30,11 @@ export default function isValidPassword(password = "") {
   //Checking if password is in descing or ascending
   if(/(012|123|234|345|456|567|678|789|987|876|765|654|543|432|321)/.test(password))return false
 
+
+  //Checking if the forbidden password was not given
   if(forbiddenPasswords.includes(password)) return false
 
+ //Checking if a password doesn't contains four different character/digits
   const setOfPassword = new Set([...password]);
   if (setOfPassword.size < 4) return false;
   return true;
