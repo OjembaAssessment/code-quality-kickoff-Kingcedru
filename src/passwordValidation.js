@@ -35,6 +35,9 @@ export default function isValidPassword(password = "") {
   if(forbiddenPasswords.includes(password)) return false
 
  //Checking if a password doesn't contains four different character/digits
+
+  if(forbiddenPasswords.includes(password)) return false
+
   const setOfPassword = new Set([...password]);
   if (setOfPassword.size < 4) return false;
   return true;
