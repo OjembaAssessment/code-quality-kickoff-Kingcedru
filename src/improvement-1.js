@@ -6,8 +6,5 @@
 
 // FUNCTION 1
 export default function timesOfOccurence(text){
-  text = text.split('');
-  const rCharacters = text.filter(item=>item == 'R')
-  const occurs = rCharacters.length
-  return occurs;
+  return text.split('').filter(item=>item == 'R').length
 }
