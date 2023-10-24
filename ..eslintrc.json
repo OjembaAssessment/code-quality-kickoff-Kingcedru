@@ -9,5 +9,5 @@
     "plugins": [
         "unicorn"
     ],
-    "extends": "plugin:unicorn/recommended"
+    "extends": ["plugin:unicorn/recommended","eslint:recommended"]
 }

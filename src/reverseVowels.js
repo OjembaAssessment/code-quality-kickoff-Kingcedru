@@ -2,7 +2,7 @@
 function reverseVowels(str) {
     const vowels = ['a','e','i','o','u']
     str.split(' ').join(',').split('')
-    const onlyValues = str.split('').filter((item,index)=>{
+    const onlyValues = str.split('').filter((item)=>{
       if(vowels.includes((item.toUpperCase()) && (item.toLowerCase()))){
         return item
       }
