@@ -6,6 +6,5 @@
 
 // FUNCTION 3
 export default function findLargestNumber(numbers) {
-  let largest = Math.max(...numbers)
-  return largest;
+  return Math.max(...numbers);
 }
