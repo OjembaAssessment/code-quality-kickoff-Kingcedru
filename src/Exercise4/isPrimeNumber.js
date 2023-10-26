@@ -2,7 +2,7 @@ function isPrimeNumber(num) {
   if (num < 2) return false;
   let start = 2;
   let nonPrimes = [];
-  while (start <= Math.floor(Math.sqrt(num))) {
+  while (start <= num) {
     if (num % start === 0) {
       nonPrimes.push(start);
     }
@@ -10,4 +10,4 @@ function isPrimeNumber(num) {
   }
   return nonPrimes.length > 1 ? false : true;
 }
-isPrimeNumber(2);
+isPrimeNumber(3);
